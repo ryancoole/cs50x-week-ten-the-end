@@ -1,0 +1,19 @@
+<!-- templates/library.html -->
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Your Library</h2>
+
+<ul class="list-group">
+    {% for b in books %}
+    <a href="/book/{{ b.id }}" class="list-group-item list-group-item-action d-flex justify-content-between">
+        <div>
+            <strong>{{ b.title }}</strong> — {{ b.author }}
+        </div>
+        <span class="badge bg-secondary rounded-pill">{{ b.progress }} pages</span>
+    </a>
+    {% else %}
+    <li class="list-group-item">No books found. <a href="/add">Add your first book</a>.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

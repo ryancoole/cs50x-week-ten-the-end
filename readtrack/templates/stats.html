@@ -1,0 +1,11 @@
+<!-- templates/stats.html -->
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Statistics</h2>
+<ul class="list-group">
+    <li class="list-group-item">Books added: <strong>{{ totals.books_count }}</strong></li>
+    <li class="list-group-item">Total pages logged: <strong>{{ totals.pages_count }}</strong></li>
+    <li class="list-group-item">Reviews added: <strong>{{ totals.reviews_count }}</strong></li>
+</ul>
+{% endblock %}

@@ -1,0 +1,10 @@
+<!-- templates/apology.html -->
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="text-center">
+    <h1>Error {{ top }}</h1>
+    <p>{{ bottom }}</p>
+    <a href="/" class="btn btn-secondary">Home</a>
+</div>
+{% endblock %}

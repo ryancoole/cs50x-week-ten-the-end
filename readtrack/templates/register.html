@@ -1,0 +1,12 @@
+<!-- templates/register.html -->
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Register</h2>
+<form method="post">
+    <input name="username" class="form-control mb-3" placeholder="Username" autofocus>
+    <input name="password" type="password" class="form-control mb-3" placeholder="Password">
+    <input name="confirmation" type="password" class="form-control mb-3" placeholder="Confirm password">
+    <button class="btn btn-primary w-100">Register</button>
+</form>
+{% endblock %}

@@ -1,0 +1,36 @@
+<!-- templates/book.html -->
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>{{ book.title }}</h2>
+<p><em>{{ book.author }}</em></p>
+
+<h4>Progress</h4>
+<p>{{ progress }} pages read{% if book.pages %} / {{ book.pages }} total{% endif %}</p>
+
+<form method="post" class="mb-3">
+    <input name="pages_read" class="form-control mb-2" placeholder="Pages read this session">
+    <button class="btn btn-primary">Log Progress</button>
+</form>
+
+<h4>Reviews</h4>
+<form action="/review/{{ book.id }}" method="post" class="mb-3">
+    <select name="rating" class="form-select mb-2">
+        {% for r in range(1,6) %}
+        <option value="{{ r }}">{{ r }} Star{{ 's' if r > 1 }}</option>
+        {% endfor %}
+    </select>
+    <textarea name="review" class="form-control mb-2" placeholder="Write a review (optional)"></textarea>
+    <button class="btn btn-warning">Submit Review</button>
+</form>
+
+{% for r in reviews %}
+<div class="border rounded p-3 mb-3">
+    <strong>{{ '★' * r.rating }}</strong>
+    <p class="mb-1">{{ r.review }}</p>
+    <small class="text-muted">{{ r.date }}</small>
+</div>
+{% else %}
+<p class="text-muted">No reviews yet.</p>
+{% endfor %}
+{% endblock %}

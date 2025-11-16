@@ -1,0 +1,24 @@
+<!-- templates/index.html -->
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Dashboard</h2>
+
+<p>Total books: <strong>{{ total_books }}</strong></p>
+<p>Total pages logged: <strong>{{ total_pages }}</strong></p>
+
+<h3 class="mt-4">Recent Books</h3>
+<ul class="list-group">
+    {% for b in books %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <a href="/book/{{ b.id }}"><strong>{{ b.title }}</strong></a> by {{ b.author }}
+                {% if b.pages %}<small class="text-muted"> ({{ b.pages }} pages)</small>{% endif %}
+            </div>
+            <span class="badge bg-primary rounded-pill">{{ b.progress }} pages</span>
+        </li>
+    {% else %}
+        <li class="list-group-item">No books yet — <a href="/add">add one</a>.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

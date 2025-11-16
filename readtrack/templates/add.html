@@ -1,0 +1,12 @@
+<!-- templates/add.html -->
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Add Book</h2>
+<form method="post">
+    <input name="title" class="form-control mb-3" placeholder="Title" autofocus>
+    <input name="author" class="form-control mb-3" placeholder="Author">
+    <input name="pages" class="form-control mb-3" placeholder="Total pages (optional)">
+    <button class="btn btn-success w-100">Add Book</button>
+</form>
+{% endblock %}
